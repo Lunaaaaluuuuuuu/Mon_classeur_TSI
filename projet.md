@@ -22,18 +22,28 @@ radio.send("lumiere")
 radio.off()
 
 ### **bbc numéro A :**<br>
-from microbit import * <br>
-import radio <br>
+from microbit import *
+import radio
 
-message = radio.receive("lumiere")
+def avance(vitesse, duree):
+  pin0.write_analog(vitesse)
+  pin8.write_digital(0)
+  pin1.write_analog(vitesse)
+  pin12.write_digital(0)
+  sleep(duree)
 
-radio.on()
+def recul(vitesse, duree):
+  pin0.write_analog(1023 - vitesse)
+  pin8.write_digital(0)
+  pin1.write_analog(1023 - vitesse)
+  pin12.write_digital(0)
+  sleep(duree)
 
+message = radio.receive('lumiere')
 radio.config(channel = 10, power = 3, length = 32, group=10)
+if message:
+  pass
+avance(None, None)
 
-while True: <br>
-  if message: <br>
-    pin0.write_digital(1) <br>
-    sleep(5000) <br>
-    pin0.write_digital(0) <br>
-    sleep(5000) <br>
+while True:
+  pass
