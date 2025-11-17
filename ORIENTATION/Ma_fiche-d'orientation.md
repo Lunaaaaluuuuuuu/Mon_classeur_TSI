@@ -5,9 +5,9 @@
 - Licence Mi, Université Paris-Saclay
 - Licence MPMEI, Université Brest
 
-## **2. Licence Art
+## **2. Licence Art** <br>
 
-## **3. Licence Droit ou Science po
+## **3. Licence Droit ou Science po** <br>
 
 ## **4. Parcours architecte** <br>  
 ### établissements :
