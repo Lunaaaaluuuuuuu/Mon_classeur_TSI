@@ -47,3 +47,41 @@ avance(None, None)
 
 while True:
   pass
+
+
+
+  retest
+
+  from microbit import *
+import radio 
+
+radio.config(channel = 10, power = 3, length = 32, group=10)
+
+radio.on()
+
+if radio.on():
+    display.show(Image.YES)
+
+def jour():
+    pin10.write_analog(150 >= 1053)
+
+def nuit():
+    pin10.write_analog(0 < 149)
+
+while True :
+    pin10.read_analog()
+    if jour():
+        radio.send('ouvre')
+        while jour():
+            sleep(5000)
+            pin10.read_analog()
+            if nuit():
+                break
+   
+    elif nuit():
+        radio.send('ferme')
+        while nuit():
+            sleep(5000)
+            pin10.read_analog()
+            if nuit():
+                break
