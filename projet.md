@@ -56,4 +56,24 @@ while True :
     else :
         sleep(5000)
         
+
+
+
+    capteur de temp
+
+    # Imports go at the top
+from microbit import *
+import math
+
+B = 4250        # B valeur résistance en fonction de la version
+R0 = 100000     # R0 = 100k
+
+while True:
+    a = pin0.read_analog()           # lit le résultat de la CAN broche P0
+    R = ((1023/a)-1) * R0                           # calcul de la résistance
+    temp = 1/(math.log(R/R0)/B+1/298.15)-273.15     # calcul de la température
+    temp = round(temp, 1)                           # arrondi au 1/10
+    display.show(temp) # affichage
+    print(temp)
+    sleep(1000)
     
